@@ -416,3 +416,11 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Python and Flask specific
+.venv/
+__pycache__/
+*.pyc
+instance/
+*.db
+.env
