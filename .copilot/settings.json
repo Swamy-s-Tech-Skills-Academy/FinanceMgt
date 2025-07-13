@@ -1,0 +1,58 @@
+{
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": true,
+        "plaintext": true,
+        "markdown": true,
+        "python": true,
+        "javascript": true,
+        "typescript": true,
+        "html": true,
+        "css": true,
+        "json": true,
+        "sql": true
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.chat.enabled": true,
+    "github.copilot.inlineSuggest.enable": true,
+    "github.copilot.suggestions.count": 3,
+    "github.copilot.advanced": {
+        "listCount": 10,
+        "inlineSuggestCount": 3,
+        "debug.overrideEngine": "copilot-codex",
+        "debug.testOverrideProxyUrl": "",
+        "debug.showScores": false
+    },
+    "files.associations": {
+        "*.py": "python",
+        "*.html": "html",
+        "*.css": "css",
+        "*.js": "javascript",
+        "*.json": "json",
+        "*.md": "markdown",
+        "*.sql": "sql"
+    },
+    "python.defaultInterpreterPath": "./.venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "emmet.includeLanguages": {
+        "jinja-html": "html",
+        "jinja2": "html"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/node_modules": true,
+        "**/.git": false,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true
+    }
+}

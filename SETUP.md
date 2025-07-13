@@ -3,6 +3,7 @@
 ## 📋 Quick Setup
 
 ### Option 1: Using Setup Script (Recommended)
+
 ```bash
 # For Command Prompt
 setup.bat
@@ -12,6 +13,7 @@ setup.bat
 ```
 
 ### Option 2: Manual Setup
+
 ```bash
 # 1. Activate virtual environment
 .\.venv\Scripts\activate    # Windows CMD
@@ -56,7 +58,7 @@ d:\STSA\FinanceMgt/
 ## 🌐 Running the App
 
 1. **First time setup**: Run `setup.bat` or `setup.ps1`
-2. **Subsequent runs**: 
+2. **Subsequent runs**:
    ```bash
    .\.venv\Scripts\activate
    python run.py
