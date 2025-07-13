@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>📊 Finance Dashboard</h2>
+
+        <!-- Summary Cards -->
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card text-white bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">💰 Total Income</h5>
+                        <h3 class="card-text">₹{{ "%.2f"|format(income) }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">💸 Total Expense</h5>
+                        <h3 class="card-text">₹{{ "%.2f"|format(expense) }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-info">
+                    <div class="card-body">
+                        <h5 class="card-title">💳 Balance</h5>
+                        <h3 class="card-text">₹{{ "%.2f"|format(income - expense) }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Transaction Button -->
+        <div class="mb-3">
+            <a href="{{ url_for('add') }}" class="btn btn-primary">➕ Add New Transaction</a>
+        </div>
+
+        <!-- Transactions List -->
+        <div class="card">
+            <div class="card-header">
+                <h5>📋 Recent Transactions</h5>
+            </div>
+            <div class="card-body">
+                {% if transactions %}
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
+                                <th>Type</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for txn in transactions %}
+                            <tr>
+                                <td>{{ txn.date.strftime("%d-%b-%Y") }}</td>
+                                <td>{{ txn.description }}</td>
+                                <td>₹{{ "%.2f"|format(txn.amount) }}</td>
+                                <td>
+                                    {% if txn.type == 'Income' %}
+                                    <span class="badge bg-success">💰 {{ txn.type }}</span>
+                                    {% else %}
+                                    <span class="badge bg-danger">💸 {{ txn.type }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('delete', id=txn.id) }}" class="btn btn-sm btn-outline-danger"
+                                        onclick="return confirm('Are you sure you want to delete this transaction?')">
+                                        🗑️ Delete
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-4">
+                    <h5>No transactions yet!</h5>
+                    <p>Start by adding your first transaction.</p>
+                    <a href="{{ url_for('add') }}" class="btn btn-primary">Add First Transaction</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
